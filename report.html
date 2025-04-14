@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Report Upload</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            padding: 20px;
+        }
+        .upload-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .upload-container:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 22px;
+        }
+        .file-input {
+            border: 2px dashed #2575fc;
+            padding: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #f1f5ff;
+            transition: background 0.3s, border 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            color: #2575fc;
+            text-align: center;
+            height: 60px;
+        }
+        .file-input:hover {
+            background: #e0eaff;
+            border-color: #6a11cb;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .upload-btn {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+        }
+        .upload-btn:hover {
+            background: linear-gradient(135deg, #2575fc, #6a11cb);
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        .view-reports {
+            display: block;
+            margin-top: 15px;
+            color: #2575fc;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .view-reports:hover {
+            text-decoration: underline;
+            color: #6a11cb;
+        }
+        #file-name {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h2>Upload Your Medical Report</h2>
+        <label for="file-upload" class="file-input">
+            Click to Choose File
+            <input type="file" id="file-upload" accept=".pdf,.doc,.docx">
+        </label>
+        <p id="file-name">No file chosen</p>
+        <button class="upload-btn" onclick="uploadFile()">Upload Report</button>
+        <a href="#" class="view-reports">View Medical Reports</a>
+    </div>
+
+    <script>
+        document.getElementById("file-upload").addEventListener("change", function() {
+            let fileName = this.files[0]?.name || "No file chosen";
+            document.getElementById("file-name").textContent = fileName;
+        });
+
+        function uploadFile() {
+            alert("File uploaded successfully!");
+        }
+    </script>
+</body>
+</html>
